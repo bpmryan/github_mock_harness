@@ -20,4 +20,14 @@ def test_get_public_repo_count_success(mock_get):
     result = get_public_repo_count("someuser")
 
     # assertions
-    
+    assert result == 14
+
+@patch('github_client.requests.get')
+def test_get_public_repo_count_failure(mock_get):
+    # setup a failing mock response
+    fake_response = MagicMock()
+    fake_response.status_code = 404
+    mock_get.response_value = fake_response
+
+    with pytest.raises(ValueError):
+        get_public_repo_count("nonexistent-user")

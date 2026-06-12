@@ -1,0 +1,15 @@
+# Virtual Environment folder
+.venv/
+venv/
+
+# Pytest cache
+.pytest_cache/
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+
+# Debug logs
+pytestdebug.log
